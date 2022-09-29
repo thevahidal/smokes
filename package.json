@@ -1,7 +1,6 @@
 {
   "name": "smokes",
   "version": "0.1.1",
-  "private": true,
   "main": "server.js",
   "scripts": {
     "dev": "next dev",
