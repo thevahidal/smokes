@@ -117,7 +117,7 @@ export default function Home() {
           <p className={styles.count}>
             <strong>{stats.today}</strong> Today
             {' '}
-            <ChangeIndicator change={stats.today - stats.yesterday} />
+            <ChangeIndicator change={stats.today - (stats.yesterday || 0)} />
           </p>
           <p className={styles.count}>
             <strong>{stats.total}</strong> Since {Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: 'numeric' }).format(new Date(stats.userCreatedAt))}
@@ -127,9 +127,9 @@ export default function Home() {
       <footer className={styles.footer}>
         All users smoked 
         {' '}
-        <strong>{stats.allUsersToday}</strong> 
+        <strong>{stats.allUsersToday || 0}</strong> 
         {' '}
-        <ChangeIndicator change={stats.allUsersToday - stats.allUsersYesterday} />
+        <ChangeIndicator change={(stats.allUsersToday || 0 ) - (stats.allUsersYesterday || 0)} />
         {' '}
         cigarettes today
       </footer>
