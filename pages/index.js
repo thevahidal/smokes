@@ -19,7 +19,6 @@ export default function Home() {
   useEffect(() => {
     if (!isFirstLoad.current) return;
     isFirstLoad.current = false;
-    console.log({ isFirstLoad })
     // get width of light button and set it as height of it too
     lightButton.current.style.height = lightButton.current.offsetWidth + 'px'
 
@@ -54,7 +53,6 @@ export default function Home() {
       setInitialLoading(true)
     }
     const localUserId = document.cookie.includes('userId') ? document.cookie.split('userId=')[1] : null
-    console.log({ localUserId })
     const response = await fetch('/api/smokes', {
       method: 'GET',
       headers: {
@@ -63,7 +61,6 @@ export default function Home() {
       }
     })
     const { data: { userId, userCreated, ...rest } } = await response.json()
-    console.log({ userId, userCreated, rest })
 
     // if user id cookie does not exist, set it
     if (userCreated) {
