@@ -28,6 +28,10 @@
   flex-grow: 1;
 }
 
+.footer strong {
+  padding: 0 0.3rem;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -42,7 +46,7 @@
 .title {
   margin: 0;
   line-height: 1.15;
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 .title,
@@ -51,9 +55,19 @@
 }
 
 .description {
-  margin: 4rem 0;
+  margin: 1rem 0;
   line-height: 1.5;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+.count {
+  margin: 0.5rem 0 0;
+  color: rgba(95, 95, 95, 1);
+}
+
+.count strong {
+  color: #fff;
+  padding-right: 0.3rem;
 }
 
 .code {
@@ -65,7 +79,12 @@
     Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
-.grid {
+.rounded {
+  border-radius: 9999px !important; 
+}
+
+.lightButtonWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,15 +100,16 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.5s ease, border-color 0.5s ease;
   max-width: 300px;
+  z-index: 100;
 }
 
 .card:hover,
 .card:focus,
 .card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+  color: #fff;
+  border-color: #fff;
 }
 
 .card h2 {
@@ -101,6 +121,53 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.card.lg {
+  padding: 2rem;
+  font-size: 3rem;
+}
+
+.card.button {
+  cursor: pointer;
+}
+
+@keyframes sploosh {
+  0% {
+    box-shadow: 0 0 0 0px rgba(17, 17, 17, 0.8);
+    background: rgba(29, 29, 29, 0.4);
+  }
+  80% {
+    background: rgba(66, 166, 223, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 120px rgba(66, 66, 66, 0);
+  }
+}
+
+.pulse {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sploosh 3s infinite;
+  z-index: -1;
+}
+
+.disabled {
+  animation: none !important;
+  border-color: #222 !important;
+  transition: none !important;
+  cursor: not-allowed !important;
+}
+
+.pulses {
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  position: absolute;
 }
 
 .logo {
